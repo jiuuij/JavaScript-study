@@ -1,0 +1,110 @@
+:root{
+    --normal: rgb(255, 192, 115);
+    --thick: rgb(255, 204, 138);
+    --strong: rgb(235, 129, 0);
+    --bgcolor: rgb(255, 245, 232);
+}
+
+@font-face {
+    font-family: 'KCCChassam';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCCChassam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #fdffe8c2;
+}
+
+body,
+button,
+input::placeholder,
+textarea::placeholder {
+    font-family: 'KCCChassam';
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: var(--thick);
+    letter-spacing: 10px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input,
+textarea,
+button {
+    border-radius: 10px;
+    border: solid 2px var(--thick);
+}
+
+input:focus,
+textarea:focus {
+    border: solid 2px var(--strong);
+    outline: solid 1px var(--strong);
+}
+
+input {
+    display: block;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 10px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--normal);
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 10px;
+}
+
+button {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 308px;
+    height: 30px;
+    background-color: var(--bgcolor);
+    color: var(--normal);
+    font-weight: bolder;
+    letter-spacing: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    border: solid 2px var(--strong);
+    color: var(--strong);
+}
+
+#display {
+    width: 308px;
+    color: var(--thick);
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
