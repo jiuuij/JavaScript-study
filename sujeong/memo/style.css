@@ -1,0 +1,108 @@
+@font-face {
+  font-family: "NeoDunggeunmoPro-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  font-family: "NeoDunggeunmoPro-Regular";
+}
+
+#l-main {
+  width: 80%;
+  margin: 0 auto;
+  background-color: black;
+  padding: 7%;
+  padding-top: 5%;
+  margin: 0 auto;
+  margin-top: 3%;
+  max-width: 50%;
+}
+
+h1 {
+  display: inline-block;
+  padding: 2% 3%;
+  font-size: 2.7em;
+  color: white;
+  line-height: 40px;
+  white-space: nowrap;
+}
+
+sub {
+  margin: 0 auto;
+}
+
+textarea {
+  width: 90%;
+  height: 50%;
+  resize: none;
+  margin-left: 25px;
+  margin-top: 40px;
+  font-size: 30px;
+  display: block;
+  box-sizing: border-box;
+  color: white;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  padding-top: 40px;
+  overflow: hidden;
+}
+
+.inputList {
+  padding: 3.5% 2%;
+  padding-right: 0;
+  color: white;
+}
+
+.layout {
+  display: flex;
+  padding-right: 10px;
+}
+
+.userInput {
+  display: block;
+  flex-grow: 1;
+
+  color: white;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  max-height: 20px;
+  padding: 10px;
+  border-bottom: 1px solid white;
+  font-size: 22px;
+  color: white;
+
+  margin-bottom: 30px;
+}
+
+button {
+  background-color: transparent;
+
+  font-size: 20px;
+  height: 50px;
+  padding-bottom: 10%;
+
+  color: white;
+  border: none;
+}
+
+input {
+  border: none;
+
+  color: white;
+  background-color: transparent;
+  font-size: 4em;
+  padding-right: 2%;
+}
+
+.inputList ul {
+  margin-left: -5%;
+  margin-right: 18px;
+  color: white;
+}
