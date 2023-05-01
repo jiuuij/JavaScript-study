@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가위바위보 게임 만들기</title>
+    <style>
+      .손 {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="wrapper">
+      <div class="가위바위보">
+        <p class="손" id="가위">✌️</p>
+        <p class="손" id="바위">✊</p>
+        <p class="손" id="보">✋</p>
+      </div>
+      <div class="버튼">
+        <button class="btn가위" type="button">가위</button>
+        <button class="btn바위" type="button">바위</button>
+        <button class="btn보" type="button">보</button>
+      </div>
+    </section>
+
+    <script>
+      let 가위 = document.querySelector("#가위");
+      let 바위 = document.querySelector("#바위");
+      let 보 = document.querySelector("#보");
+
+      let left = 0;
+      let 가위바위보 = {
+        가위: "0",
+        바위: "1",
+        보: "2",
+      };
+      setInterval(function () {
+        if (left == 가위바위보.가위) {
+          left = 가위바위보.바위;
+        } else if (left == 가위바위보.바위) {
+          left = 가위바위보.보;
+        } else if (left == 가위바위보.보) {
+          left = 가위바위보.가위;
+        }
+
+        // 가위, 바위, 보 중 하나만 보이도록 설정
+        가위.style.display = "none";
+        바위.style.display = "none";
+        보.style.display = "none";
+
+        if (left == 가위바위보.가위) {
+          가위.style.display = "block";
+        } else if (left == 가위바위보.바위) {
+          바위.style.display = "block";
+        } else if (left == 가위바위보.보) {
+          보.style.display = "block";
+        }
+      }, 3000);
+    </script>
+  </body>
+</html>
