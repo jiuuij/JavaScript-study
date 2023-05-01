@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Local Storage Memo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="l-main">
+      <div class="layout">
+        <h1>Petty<br />memo</h1>
+        <div class="userInput">
+          <textarea
+            id="content"
+            name="content"
+            placeholder=" Put it here!"
+            required
+          ></textarea>
+        </div>
+        <input type="button" value=" 👻 " onclick="saveMemo()" />
+      </div>
+      <div class="inputList">
+        <ul id="memo-list"></ul>
+      </div>
+    </section>
+    <script>
+      const contentElement = document.getElementById("content");
+      const memoListElement = document.getElementById("memo-list");
+
+      function saveMemo() {
+        const memo = contentElement.value;
+
+        if (memo) {
+          const memoId = Date.now().toString();
+          const memoItemElement = document.createElement("li");
+          memoItemElement.textContent = memo;
+          const deleteButtonElement = document.createElement("button");
+          deleteButtonElement.textContent = "X";
+          deleteButtonElement.addEventListener("click", () => {
+            localStorage.removeItem(memoId);
+            memoListElement.removeChild(memoItemElement);
+          });
+
+          memoItemElement.appendChild(deleteButtonElement);
+          memoListElement.prepend(memoItemElement);
+
+          const memoObject = { id: memoId, content: memo };
+          localStorage.setItem(memoId, JSON.stringify(memoObject));
+          contentElement.value = "";
+        }
+      }
+
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key) {
+          const memoObject = JSON.parse(localStorage.getItem(key));
+          const memoItemElement = document.createElement("li");
+          memoItemElement.textContent = memoObject.content;
+          const deleteButtonElement = document.createElement("button");
+          deleteButtonElement.textContent = "X";
+          deleteButtonElement.addEventListener("click", () => {
+            localStorage.removeItem(memoObject.id);
+            memoListElement.removeChild(memoItemElement);
+          });
+
+          memoItemElement.appendChild(deleteButtonElement);
+          memoListElement.prepend(memoItemElement);
+        }
+      }
+    </script>
+  </body>
+</html>
