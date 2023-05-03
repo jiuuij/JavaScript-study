@@ -1,5 +1,52 @@
+@font-face {
+    font-family: 'DOSSaemmul';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSSaemmul.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 #computer {
     width: 142px;
     height: 200px;
 }
 
+body {
+    font-family: 'DOSSaemmul';
+    width: 500px;
+    height: 500px;
+    margin: 150px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: rgba(116, 187, 120, 0.781);
+    text-align: center;
+    letter-spacing: 10px;
+}
+
+.btn {
+    font-family: 'DOSSaemmul';
+    font-size: 25px;
+    justify-content : center;
+    width: 100px;
+    height: 40px;
+    border: solid 1px rgba(116, 187, 120, 0.781);
+    background-color: #fff;    
+}
+
+.btn:hover{
+    border : solid 2px rgba(116, 187, 120, 0.781);
+}
+
+.btn:active{
+    border : none;
+    background-color: rgba(116, 187, 120, 0.781);
+}
+
+
+#score{
+    padding-top: 10px;
+}

@@ -8,9 +8,9 @@ $computer.style.background = `url(${IMG_URL}) 0 0`;
 $computer.style.backgroundSize = 'auto 200px';
 
 const imgX = {
-    rock: '0', //가위 //1
-    scissors : '-145px', //바위 //0
-    paper : '-275px', //보  //-1
+    rock: '0', //바위 0
+    scissors : '-145px', // 가위 1
+    paper : '-275px', //보  -1
 };
 
 let computerChoice = 'scissors';
@@ -31,8 +31,8 @@ const changeComputerHand = () => {
     $computer.style.backgroundSize = 'auto 200px';
     //여기에 setInterval(changeComputerHand,100); 가 들어가면 재귀함수가 되는 것.
     //그런데 setTimeout,setInterval은 정확한 시간이 아니다. 앞의 코드들이 다 끝난 후 초가 시작되기 때문이지만 대부분 비슷하기 때문에 그냥 쓴다.
-    //함수간의 간격을 1초로 보장해달라 -> setInterval
-    //함수간의 간격이 1초 정도 띄워 지기만 하면 된다  -> setTimeout
+    //💥함수간의 간격을 1초로 보장해달라 -> setInterval
+    //💥함수간의 간격이 1초 정도 띄워 지기만 하면 된다  -> setTimeout
 }
 let intervalID = setInterval(changeComputerHand, 80);
 
@@ -63,7 +63,7 @@ const clickButton = () => {
         const computerScore = scoreTable[computerChoice];
         const diff = myScore - computerScore;
         console.log(computerChoice, myChoice, computerScore, myScore, diff)
-        // if (diff === 2 || diff === -1) 를 [2, -1].includes(diff) 로 바꿔주기. 
+        // 💥 if (diff === 2 || diff === -1) 를 [2, -1].includes(diff) 로 바꿔주기. 
         // 왜냐면 비교대상이 3개 이상이 되면 코드가 너무 길어지니까 includes(diff) 사용하기
         // 하지만 줄이는게 더 해석하기 어려울 수도 있으니까 마냥 좋은 방법이라고 할 순 없다. 알아보기 쉬운 걸로 쓰기
         // if (diff === 2 || diff === -1) {
@@ -83,17 +83,26 @@ const clickButton = () => {
         } else {
             message = '무승부';
         }
-        $score.textContent = `${message} 총 : ${score}점`;
-    setTimeout(() => {
-        clickable = true;
-        intervalID = setInterval(changeComputerHand,80);
-    }, 1000);
-    }
+        //💥 if (me === 3) 처럼 ===하는 게 이론상으론 맞지만 버그로 인해서 3점보다 더 많이 받는 경우가 발생할 때도 값을 도출하기 위함
+        if (me >= 3) {
+            alert($score.textContent = `👅내가 이겼지롱👅 ${me}:${computer}`);
+        } else if (computer >= 3) {
+            alert($score.textContent = `😭컴퓨터 승리😭 ${me}:${computer}`);
+        } else {
+            $score.textContent = `${message} ${me}:${computer}`;
+            setTimeout(() => {
+                clickable = true;
+                intervalID = setInterval(changeComputerHand, 80);
+            }, 1000);
+        }
+    }    
 };
 
 $rock.addEventListener('click',clickButton);
 $scissors.addEventListener('click',clickButton);
 $paper.addEventListener('click',clickButton);
+
+
 
 /**❗리팩토링 할 때 ❗
  * 재대결 알림창 만들기
