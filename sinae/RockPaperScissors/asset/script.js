@@ -7,7 +7,8 @@ const $btn = $screen.querySelector('.selectItem');
 const $score = $screen.querySelector('.score');
 
 // 점수 산정 관련 변수
-const $result = $screen.querySelector('.score h2');
+const $result = $screen.querySelector('.score h2 span');
+const $resultEmoji = $screen.querySelector('.score h2 img');
 const $pcScore = $screen.querySelector('.pc-score');
 const $userScore = $screen.querySelector('.user-score');
 const $restart = $screen.querySelector('.restart');
@@ -89,7 +90,7 @@ replaceEmoji($user);
 // 랜덤 유저이미지 생성
 (function userImg() {
     let randomImg = parseInt(Math.random() * 6);
-    return $userImg.setAttribute('src', `asset/img/user-${randomImg}.png`);
+    return $userImg.setAttribute('src', `./asset/img/user-${randomImg}.png`);
 })();
 
 
@@ -113,7 +114,7 @@ $btn.addEventListener('click', (e) => {
 // 재시작 버튼 클릭시 게임 재시작
 $restart.addEventListener('click', () => {
     replayGame();
-    // bgmRestart.play();
+    start.play();
 });
 
 
@@ -153,14 +154,9 @@ const playGame = (pc, user) => {
 
 // 승패 결과에 따라 Message
 const resultMessage = num => {
-    // 승패 결과에 맞는 사운드 출력
-    // console.log(resultArr[num])
-
     // img 태그를 생성하여 화면에 표시
     const resultImg = document.createElement('img');
-    resultImg.src = `./asset/img/result-${resultArr[num]}.gif`;
-    resultImg.alt = resultArr[num];
-    $result.prepend(resultImg);
+    $resultEmoji.setAttribute('src', `./asset/img/result-${resultArr[num]}.gif`);
 
     // 승패 결과에 따라 resultArr배열에 있는 index를 가져와서 대문자 메시지 표시.
     $result.textContent = ` ${resultArr[num].toUpperCase()}!`
