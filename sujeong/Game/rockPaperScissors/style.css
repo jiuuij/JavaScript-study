@@ -42,6 +42,6 @@ button:not(:last-child) {
 
 .컴퓨터픽,
 .내픽 {
-  font-size: 50px;
-  margin-left: 170px;
+  /* font-size: 50px; */
+  /* margin-left: 170px; */
 }
