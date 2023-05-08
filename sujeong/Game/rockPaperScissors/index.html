@@ -5,35 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>가위바위보 게임 만들기</title>
-    <style>
-      .손 {
-        display: none;
-      }
-    </style>
+    <style></style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <section class="wrapper">
+      <div class="버튼">
+        <button class="btn가위" type="button">가위</button>
+        <button class="btn바위" type="button">바위</button>
+        <button class="btn보" type="button">보오</button>
+      </div>
       <div class="가위바위보">
         <p class="손" id="가위">✌️</p>
         <p class="손" id="바위">✊</p>
         <p class="손" id="보">✋</p>
       </div>
-      <div class="버튼">
-        <button class="btn가위" type="button">가위</button>
-        <button class="btn바위" type="button">바위</button>
-        <button class="btn보" type="button">보</button>
-      </div>
+
+      <div class="컴퓨터픽">comPick</div>
+      <div class="내픽">myPick</div>
     </section>
 
     <script>
+      //돔으로 html요소 가져오기
       let 가위 = document.querySelector("#가위");
       let 바위 = document.querySelector("#바위");
       let 보 = document.querySelector("#보");
 
+      let btn가위 = document.querySelector(".btn가위");
+      let btn바위 = document.querySelector(".btn바위");
+      let btn보 = document.querySelector(".btn보");
+
+      let 버튼 = document.querySelector(".버튼");
+
+      let 컴퓨터픽 = document.querySelector(".컴퓨터픽");
+      let 내픽 = document.querySelector(".내픽");
+
+      let 가위바위보 = document.querySelector(".가위바위보");
+
       var 가위바위보배열 = [가위, 바위, 보];
       var i = 0;
 
-      setInterval(function () {
+      let showGame = setInterval(function () {
         if (i == 0) {
           가위바위보배열[i].style.display = "block";
           가위바위보배열[1].style.display = "none";
@@ -51,6 +63,34 @@
           i = i - 2;
         }
       }, 500);
+
+      // 기본으로 이모지 하나 띄워놓고 두개만 제어하기!
+
+      //가위바위보 중 랜덤으로 선택하기
+      let comPick;
+
+      function computerPick() {
+        let comPickIndex = Math.floor(Math.random() * 가위바위보배열.length);
+
+        comPick = 가위바위보배열[comPickIndex];
+      }
+
+      //내가 누른 이모지
+
+      // 버튼 누르면 1. 이모지 멈추고 2.컴퓨터픽 선택 되도록 하기
+
+      function 이모지멈춰() {
+        clearInterval(showGame);
+      }
+
+      btn가위.addEventListener("click", function () {
+        가위바위보.style.display = "none";
+        clearInterval(showGame); //화면에는 안보이지만 계속 돌고 있으면 성능면에서 bad ~
+        computerPick();
+        컴퓨터픽.textContent = comPick.textContent;
+        //comPick 변수에도 textContent를 붙이는 이유는 comPick변수가 가리키는것은 p요소 자체이기 때문에 그 안에 담긴 텍스트를 가져오기 위함이다.
+        내픽.textContent = 가위.textContent;
+      });
     </script>
   </body>
 </html>

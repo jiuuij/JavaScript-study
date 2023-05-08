@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>카드 맞추기 게임</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="wrapper">
+      <div class="cards">
+        <div class="card-1">카드</div>
+        <div class="card-2">카드</div>
+        <div class="card-3">카드</div>
+        <div class="card-4">카드</div>
+      </div>
+    </section>
+
+    <script>
+      // 1. 각 요소에 dom 으로 접근하여 변수에 담아두기
+      const cards = document.querySelector(".cards");
+      const card1 = document.querySelector(".card-1");
+      const card2 = document.querySelector(".card-2");
+      const card3 = document.querySelector(".card-3");
+      const card4 = document.querySelector(".card-4");
+
+      // 2. 첫번째 카드를 선택하면 앞면을 보여주도록 클릭 이벤트 걸기
+      cards.addEventListener("click", function () {
+        cards.textContent("");
+      });
+    </script>
+  </body>
+</html>
+
+<!-- 
+1. 각 요소에 dom 으로 접근하여 변수에 담아두기
+2. 첫번째 카드를 선택하면 앞면을 보여주도록 클릭 이벤트 걸기
+3. 두번째 카드를 선택하면 앞면을 보여주도록 클릭 이벤트 걸기 
+3-1. 첫번째 카드의 변수와 비교하여 같으면 그대로 띄워지도록 이벤트 걸기 + alert창
+3-2. 값이 다르면 셋인터벌로 다시 뒤집히도록
+
+
+
+
+
+-->

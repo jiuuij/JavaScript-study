@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.wrapper {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.cards {
+  flex-wrap: wrap;
+  display: flex;
+
+  /* width: 90%; */
+}
+
+[class^="card-"] {
+  border: 2px solid green;
+  width: 30%;
+  margin: 20px;
+  min-height: 150px;
+  border-radius: 10px;
+  background-color: pink;
+}
